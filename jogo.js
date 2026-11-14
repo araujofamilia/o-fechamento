@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  var VERSAO = "2026-11-14b";
+  var VERSAO = "2026-11-14c";
   var PREF = "fechamento-teorias:v1:";
   var ULTIMO = "fechamento-teorias:ultimo";
   var MIN_DISS = 40, MIN_PARECER = 120;
@@ -101,7 +101,7 @@
       '<div class="acoes"><button class="btn verm" id="entrar">Entrar na redação</button></div>' +
       '<p class="mini">Use sempre o mesmo e-mail: ele identifica suas respostas e guarda seu progresso.</p>' +
       '<div id="retorno"></div></div></div></div>' +
-      '<div class="rodape">Casos reais citados com veículo, data e página. Situações marcadas como hipotéticas foram criadas para o treino. Citações do Traquina pela edição portuguesa (Vega, 1999). Versão ' + VERSAO + '.</div>';
+      '<div class="rodape">Casos reais citados com veículo, data e página. Situações marcadas como hipotéticas foram criadas para o treino. Citações do Traquina pela edição portuguesa (Vega, 1999). Jogo feito com apoio de IA, sob supervisão do professor. Versão ' + VERSAO + '.</div>';
     var inp = document.getElementById("email");
     function mostraRetorno() {
       var e = inp.value.trim().toLowerCase(); var s = emailValido(e) ? carregar(e) : null;
