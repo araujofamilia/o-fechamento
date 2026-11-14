@@ -14,7 +14,7 @@ var CONFIG = {
   emailProfessor: "artur.araujo@puc-campinas.edu.br",
   dataProva: "04/12",
   envio: {
-    acao: "",
-    campos: { email: "", tipo: "", sala: "", pergunta: "", resposta: "", dados: "" }
+    acao: "https://docs.google.com/forms/d/e/1FAIpQLSduXynRnD3QILSgVdsYp3zU-0IwI30o17c3XLx5P8Bu48yYqQ/formResponse",
+    campos: { email: "entry.1408065154", tipo: "entry.1577861986", sala: "entry.635517416", pergunta: "entry.348367121", resposta: "entry.1697130611", dados: "entry.550880083" }
   }
 };
