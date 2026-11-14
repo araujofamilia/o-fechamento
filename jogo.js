@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  var VERSAO = "2026-11-14a";
+  var VERSAO = "2026-11-14b";
   var PREF = "fechamento-teorias:v1:";
   var ULTIMO = "fechamento-teorias:ultimo";
   var MIN_DISS = 40, MIN_PARECER = 120;
@@ -41,6 +41,7 @@
     fundo.addEventListener("click", function (e) { var b = e.target.closest("[data-r]"); if (!b && e.target !== fundo) return; fundo.remove(); if (b && b.dataset.r === "1") sim(); });
   }
   function topo() { window.scrollTo(0, 0); }
+  function fraseCorrecao() { return CONFIG.correcao || "Na correção, o professor usa IA em parte e supervisiona cada devolutiva."; }
 
   /* ---------------- estado ---------------- */
   function novo(email) {
@@ -87,21 +88,18 @@
       '<div class="manchete">Oito teorias, uma redação: você fecha a edição?</div>' +
       '<p class="linhafina">Você entra na redação como foca. Em cada mesa, uma teoria: leia a pauta, responda, aplique a casos reais do noticiário e escreva. Quando fechar as oito mesas, encara o Fechamento: um parecer no formato da prova.</p>' +
       '</div><div class="c-resto">' +
-      '<p class="linhafina" style="font-size:18px"><b>Mudamos de assunto.</b> Atendendo a pedidos, e com a eleição encerrada, nenhum caso deste jogo é sobre eleição ou política: as teorias valem para a cidade, a saúde, a educação, o trânsito, a polícia, a tecnologia e a cultura.</p>' +
-      '<div class="aviso"><b>Não vale nota.</b> O jogo serve para treinar para a Prova Escrita Individual de ' + esc(CONFIG.dataProva) + ', que pede exatamente isto: diante de um caso, escolher duas teorias concorrentes, explicar cada uma com evidência e dizer qual explica melhor. O banco de teorias vem impresso na prova; aqui você aprende a usá-lo.</div>' +
+      '<p class="linhafina" style="font-size:18px"><b>Sem eleição nem política:</b> os casos são da cidade, da saúde, da educação, do trânsito, da polícia, da tecnologia e da cultura.</p>' +
+      '<div class="aviso"><b>Não vale nota.</b> Treina para a prova de ' + esc(CONFIG.dataProva) + ': diante de um caso, escolher duas teorias concorrentes, explicar cada uma com evidência e dizer qual explica melhor. O banco de teorias vem impresso na prova.</div>' +
       '<h2 class="secao">Como funciona</h2><ul class="lista">' +
-      '<li><b>Mesas:</b> uma por teoria, com questões de múltipla escolha, casos para aplicar e uma resposta dissertativa.</li>' +
-      '<li><b>Plantão:</b> casos misturados, de jornais de novembro (Correio Popular, O Globo, Estadão, Estado de Minas e Correio da Manhã Campinas) e de situações criadas para o treino. Quem identifica a teoria certa em sequência sobe de cargo.</li>' +
-      '<li><b>Fechamento:</b> abre quando você fechar as oito mesas. É o parecer simulado.</li>' +
-      '<li><b>Pode jogar de novo</b> quantas vezes quiser: cada rodada sorteia outras questões.</li>' +
-      '<li><b>Seu progresso fica salvo</b> neste aparelho e neste navegador. Para continuar de onde parou, entre com o mesmo e-mail.</li>' +
-      '<li><b>As respostas dissertativas</b> o professor corrige depois: na tela "Minhas respostas" você envia tudo para ele.</li></ul>' +
+      '<li><b>Jogue quantas vezes quiser:</b> cada rodada sorteia outras questões. O Plantão mistura casos de todas as teorias, reais (jornais de novembro) e criados para o treino.</li>' +
+      '<li><b>Seu progresso</b> fica salvo neste navegador.</li>' +
+      '<li><b>Ao entregar</b> uma dissertativa ou um parecer, ' + (CONFIG.envio.acao ? 'o texto vai direto para o professor, com seu e-mail, a mesa e seus pontos. Nada disso vale nota.' : 'mande o texto ao professor pela tela "Minhas respostas".') + ' ' + esc(fraseCorrecao()) + '</li></ul>' +
       '</div><div class="c-entrada"><div class="box"><div class="tipo" style="--c:var(--vermelho)">Crachá de entrada</div>' +
       '<label class="l" for="email">Seu e-mail (obrigatório)</label>' +
       '<input class="campo" id="email" type="email" autocomplete="email" placeholder="seu.nome@puccampinas.edu.br" value="' + esc(ult) + '">' +
       '<div class="erro" id="erro"></div>' +
       '<div class="acoes"><button class="btn verm" id="entrar">Entrar na redação</button></div>' +
-      '<p class="mini">O e-mail identifica suas respostas para a correção e guarda seu progresso. Use sempre o mesmo.</p>' +
+      '<p class="mini">Use sempre o mesmo e-mail: ele identifica suas respostas e guarda seu progresso.</p>' +
       '<div id="retorno"></div></div></div></div>' +
       '<div class="rodape">Casos reais citados com veículo, data e página. Situações marcadas como hipotéticas foram criadas para o treino. Citações do Traquina pela edição portuguesa (Vega, 1999). Versão ' + VERSAO + '.</div>';
     var inp = document.getElementById("email");
@@ -145,7 +143,7 @@
     html += '<span class="cracha' + (S.pareceres ? '' : ' off') + '" style="--c:var(--vermelho)">✎ Edição fechada</span>';
     html += '<span class="cracha' + (S.melhorSeq >= 10 ? '' : ' off') + '" style="--c:var(--verde)">⚡ 10 seguidas</span></div>';
     html += '<div class="acoes"><button class="btn sec" id="trocar">Trocar de e-mail</button><button class="btn sec" id="resp">Minhas respostas e envio</button></div>';
-    html += '<div class="rodape">Lembrete: não vale nota. Prepara para a prova de ' + esc(CONFIG.dataProva) + '. Progresso salvo neste navegador.</div>';
+    html += '<div class="rodape">Prepara para a prova de ' + esc(CONFIG.dataProva) + '. Progresso salvo neste navegador.</div>';
     app.innerHTML = html;
     app.querySelectorAll("[data-sala]").forEach(function (b) { b.onclick = function () { telaPauta(b.dataset.sala); }; });
     app.querySelector('[data-especial="plantao"]').onclick = function () { confirmaTroca(novaPlantao); };
@@ -243,7 +241,7 @@
         it.ops.map(function (tid, i) { var t = porId[tid]; return '<button class="op" data-o="' + tid + '"><span class="letra">' + "ABCD"[i] + '</span><span><b>' + esc(t.nome) + '</b><br><span class="mini">' + esc(t.frase) + '</span></span></button>'; }).join("") + '</div><div id="fb"></div>';
     } else if (it.tipo === "diss") {
       var dq = DISSERTATIVAS[it.sala][it.d];
-      html += '<div class="tipo">Dissertativa · o professor corrige depois</div><div class="enun">' + esc(dq.q) + '</div>' +
+      html += '<div class="tipo">Dissertativa · correção do professor, com apoio de IA</div><div class="enun">' + esc(dq.q) + '</div>' +
         '<textarea id="txt" placeholder="Escreva aqui. Pelo menos ' + MIN_DISS + ' palavras."></textarea><div class="contador" id="cont"></div>' +
         '<div class="acoes"><button class="btn verm" id="entregar" disabled>Entregar resposta</button><button class="btn sec" id="pular">Pular esta (sem pontos)</button></div>' +
         '<p class="mini">O texto fica salvo enquanto você escreve, mesmo se fechar o navegador.</p>';
@@ -311,7 +309,7 @@
   function autoavaliacao(guia, reg, depois, regua) {
     topo();
     app.innerHTML = '<div class="cartao"><div class="carimbao">ENTREGUE</div><div class="tipo">Confira sua resposta</div>' +
-      '<p>Sua resposta foi guardada para o professor corrigir' + (CONFIG.envio.acao ? ' e enviada' : '') + '. Agora compare com o que uma boa resposta costuma ter e marque o que você fez:</p>' +
+      '<p>' + (CONFIG.envio.acao ? 'Sua resposta foi enviada ao professor.' : 'Sua resposta foi guardada. Mande para o professor pela tela "Minhas respostas".') + ' Agora compare com o que uma boa resposta costuma ter e marque o que você fez:</p>' +
       (regua ? '<div class="regua"><div><b>Precisão conceitual</b>Usou cada teoria com seus conceitos certos?</div><div><b>Evidência do caso</b>Citou elementos concretos do caso?</div><div><b>Juízo comparativo</b>Disse qual explica melhor, e por quê?</div></div>' : '') +
       '<div class="checklist">' + guia.map(function (g, i) { return '<label><input type="checkbox" data-i="' + i + '"><span>' + esc(g) + '</span></label>'; }).join("") + '</div>' +
       '<details style="margin-top:12px"><summary class="mini" style="cursor:pointer">Ver o que eu escrevi</summary><div class="resp"><div class="t">' + esc(reg.texto) + '</div></div></details>' +
@@ -420,8 +418,8 @@
     desenhaBarra(); topo();
     var n = S.respostas.length;
     var html = '<div class="dateline" style="margin-top:18px"><span>Minhas respostas</span><span>' + n + ' entregue(s)</span><span>' + esc(S.email) + '</span></div>' +
-      '<div class="manchete" style="font-size:clamp(28px,4vw,40px)">Mande para o professor</div>' +
-      '<p class="linhafina">As dissertativas e os pareceres são corrigidos pelo professor depois. Não valem nota: a correção é para você chegar à prova sabendo onde acerta e onde erra.</p>';
+      '<div class="manchete" style="font-size:clamp(28px,4vw,40px)">' + (CONFIG.envio.acao ? 'Suas respostas' : 'Mande para o professor') + '</div>' +
+      '<p class="linhafina">' + esc(fraseCorrecao()) + ' A correção não vale nota: serve para você chegar à prova sabendo onde acerta e onde erra.</p>';
     if (CONFIG.envio.acao) html += '<div class="aviso" style="border-color:var(--verde);background:#f1faf4"><b style="color:var(--verde)">Envio automático ligado.</b> Cada resposta vai para o professor no momento em que você entrega. Os botões abaixo servem de cópia de segurança.</div>';
     else html += '<div class="aviso"><b>Como enviar:</b> clique em "Baixar arquivo" e mande o arquivo por e-mail para <b>' + esc(CONFIG.emailProfessor) + '</b>. O botão "Abrir e-mail" já prepara a mensagem; se o texto for longo, anexe o arquivo baixado.</div>';
     html += '<div class="acoes"><button class="btn verm" id="baixar"' + (n ? '' : ' disabled') + '>Baixar arquivo</button><button class="btn" id="mail"' + (n ? '' : ' disabled') + '>Abrir e-mail</button><button class="btn sec" id="copiar"' + (n ? '' : ' disabled') + '>Copiar tudo</button></div>';
