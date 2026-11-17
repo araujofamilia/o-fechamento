@@ -431,3 +431,257 @@ var NIVEIS = [
   { xp: 750, nome: "Editor de área" },
   { xp: 1200, nome: "Editor-chefe" }
 ];
+
+
+/* =====================================================================
+   EXPANSÃO de 17/11/2026
+   Mais questões, casos e dissertativas, com ênfase no Espelho (a
+   "armadilha fatal": parece sempre certo, e quase nunca é suficiente).
+   Tudo abaixo é acrescentado ao fim das listas, para não mudar a
+   ordem das questões que os alunos já viram.
+   Casos reais: Correio da Manhã Campinas (15 a 17/11/2026) e Meia Hora
+   (15/11/2026, capa). Situações sem "fonte" são hipotéticas.
+   ===================================================================== */
+
+/* ---------- Objetivas: Espelho (mais 8) ---------- */
+OBJETIVAS.espelho.push(
+  { q: "Uma foto de um ato público, tirada de um ângulo, mostra a rua cheia. De outro ângulo, a mesma rua, no mesmo minuto, parece vazia. As duas fotos são verdadeiras. O que isso ensina sobre o Espelho?",
+    ops: ["Que enquadrar já é escolher: uma imagem verdadeira não é o único reflexo possível do fato.", "Que uma das fotos é falsa.", "Que foto não é notícia.", "Que o fotógrafo errou a legenda."],
+    c: 0, exp: "O Espelho supõe um só reflexo possível. Se há dois reflexos verdadeiros e diferentes, houve escolha de ângulo, e escolha não é espelho." },
+  { q: "Um aluno escreve: 'se o jornalista é honesto, a notícia é um espelho'. Onde está a falha?",
+    ops: ["Honestidade evita a mentira, mas não evita a seleção e a hierarquia, que acontecem mesmo sem má-fé.", "Jornalista honesto não existe.", "Espelho só vale para jornal impresso.", "A honestidade é irrelevante para o jornalismo."],
+    c: 0, exp: "A crítica ao Espelho não acusa ninguém de mentir. Ela mostra que, mesmo com todos os fatos verdadeiros, alguém decide o que entra, em que ordem e com que palavras." },
+  { q: "Dois repórteres cobrem a mesma coletiva e escrevem leads diferentes, ambos exatos. Para o Espelho, qual seria a única explicação possível para a diferença?",
+    ops: ["Que um dos dois errou ou se distraiu.", "Que cada um escolheu o que considerava mais importante.", "Que a coletiva tinha duas verdades.", "Que os leitores são diferentes."],
+    c: 0, exp: "Se a notícia reflete o fato, textos diferentes só se explicam por erro. A pesquisa mostra que leads diferentes e corretos são normais, porque escolher é parte do trabalho." },
+  { q: "Um jornal publica uma correção: 'O prédio tinha 12 andares, e não 14, como informamos'. O que essa correção revela sobre o Espelho?",
+    ops: ["Que o valor da precisão e da verificação continua legítimo, mesmo que a tese do reflexo seja criticada.", "Que o Espelho está provado.", "Que só jornais impressos corrigem.", "Que a notícia nunca pode ser corrigida."],
+    c: 0, exp: "É o que o Espelho acerta: checar, medir, corrigir. A crítica não pede que o jornalista abandone a exatidão; pede que não confunda exatidão com ausência de escolha." },
+  { q: "Ao citar um secretário, um repórter troca 'disse' por 'admitiu'. Por que essa troca é um problema para o Espelho?",
+    ops: ["Porque o verbo já carrega uma avaliação do fato, e não existe palavra sem efeito sobre o leitor.", "Porque 'admitiu' é erro de português.", "Porque o secretário não pode ser citado.", "Porque verbos não importam em jornalismo."],
+    c: 0, exp: "Cada palavra orienta a leitura. Um relato 'sem interpretação' é impossível de escrever: até o verbo de citação interpreta." },
+  { q: "Tuchman descreve procedimentos como aspas, fontes múltiplas e ordem do lide. Para ela, eles servem principalmente para:",
+    ops: ["Dar à notícia a aparência de neutralidade e proteger o jornalista de críticas, mais do que garantir um reflexo.", "Provar que a notícia é um espelho da realidade.", "Ocultar notícias falsas.", "Aumentar a audiência."],
+    c: 0, exp: "É a 'objetividade como ritual estratégico': técnicas que protegem o jornalista (Newsmaking). Elas ajudam a explicar por que o Espelho é tão presente no discurso, mesmo sendo insuficiente como teoria." },
+  { q: "Na capa de sábado, uma inauguração de praça tem foto grande; uma enchente numa periferia, ocorrida na véspera, aparece em oito linhas na página 7. Tudo o que foi publicado é verdadeiro. O que o Espelho NÃO consegue explicar?",
+    ops: ["A hierarquia: por que um fato verdadeiro foi para a capa e outro para a página 7.", "Se os fatos publicados são verdadeiros.", "Se houve erro de digitação.", "Se a foto da praça é nítida."],
+    c: 0, exp: "O Espelho avalia se o que foi publicado corresponde ao fato. Não pergunta por que um fato ganhou capa e outro ganhou nota. Para isso são necessárias teorias sobre rotinas, seleção e interesses." },
+  { q: "Um repórter diz: 'eu só mostro o que aconteceu'. A melhor avaliação dessa frase é:",
+    ops: ["Descreve bem o ideal profissional, mas omite que seleção, hierarquia e palavras também constroem o relato.", "É uma teoria científica comprovada.", "É falsa porque o repórter mente.", "É irrelevante, porque o leitor já sabe tudo."],
+    c: 0, exp: "A frase expressa a ideologia da profissão (por isso é tão repetida) e não funciona como teoria: não explica por que dois relatos exatos do mesmo fato podem sair diferentes." }
+);
+
+/* ---------- Objetivas: outras teorias (mais 2 cada) ---------- */
+OBJETIVAS.gatekeeper.push(
+  { q: "No estudo clássico de White (1950), o editor 'Mr. Gates' descartava muitas das notícias que chegavam à mesa. O que o estudo destacou?",
+    ops: ["Que boa parte das rejeições vinha de juízos pessoais do editor, como 'não me interessa'.", "Que todas as rejeições vinham de ordens do dono.", "Que o editor não rejeitava nada.", "Que o público escolhia o que seria publicado."],
+    c: 0, exp: "White colocou o foco no selecionador individual e em seus critérios, em boa parte pessoais. Esse é o ponto forte e também o limite do Gatekeeper." },
+  { q: "Qual é a crítica mais comum ao Gatekeeper?",
+    ops: ["Olha o indivíduo que seleciona e esquece que a seleção acontece dentro de uma organização, com prazos e rotinas.", "Ele nega que existam critérios de seleção.", "Só serve para televisão.", "Ele prova que a notícia é um espelho."],
+    c: 0, exp: "As teorias organizacional e do Newsmaking vieram, em parte, corrigir isso: quem decide decide sob restrições de tempo, espaço e rotina." }
+);
+OBJETIVAS.organizacional.push(
+  { q: "Por que, segundo Breed (1955), o jornalista segue a política editorial mesmo sem ordem escrita?",
+    ops: ["Porque aprende por observação, quer pertencer ao grupo e evita sanções.", "Porque o dono vigia cada texto.", "Porque a lei obriga.", "Porque ele concorda com tudo."],
+    c: 0, exp: "É a socialização na redação: o jornalista percebe o que é aceito, premiado ou desaprovado e se ajusta, sem que ninguém precise mandar." },
+  { q: "Qual destas situações NÃO ilustra o controle organizacional?",
+    ops: ["Um repórter escolhe uma pauta sozinho, por gosto pessoal, sem qualquer influência da redação.", "Um estagiário passa a suavizar citações porque seus textos voltam reescritos.", "Uma chefia premia quem cobre os temas da linha da casa.", "Colegas explicam ao novato 'o que a gente não faz aqui'."],
+    c: 0, exp: "A escolha puramente pessoal é do Gatekeeper. O controle organizacional exige a presença da redação moldando a escolha." }
+);
+OBJETIVAS.newsmaking.push(
+  { q: "Para Schlesinger, o tempo na redação serve principalmente para:",
+    ops: ["Organizar a produção: prazos e ritmos definem o que dá para cobrir e como.", "Medir a audiência.", "Provar que a notícia é falsa.", "Decidir quem é o dono do jornal."],
+    c: 0, exp: "O fechamento, a periodicidade e o relógio da redação moldam o que vira notícia. Isso explica a 'cobertura da segunda-feira' sem supor má intenção." },
+  { q: "Por que acontecimentos em lugares sem fontes regulares tendem a ficar de fora, segundo a ideia de rede de captação?",
+    ops: ["Porque a redação só 'pesca' onde sua rede alcança: delegacias, órgãos oficiais, fontes habituais.", "Porque esses lugares não têm acontecimentos.", "Porque o dono proíbe.", "Porque o leitor não gosta."],
+    c: 0, exp: "A rede (Tuchman) são os pontos fixos onde a redação mantém contato. O que acontece fora dela tem menos chance de virar notícia." }
+);
+OBJETIVAS.agenda.push(
+  { q: "Qual foi a comparação central do estudo de McCombs e Shaw sobre agendamento?",
+    ops: ["A ordem dos temas na mídia com a ordem de importância apontada pelos eleitores.", "O número de jornais por cidade.", "A idade dos jornalistas e a dos leitores.", "A quantidade de anúncios por jornal."],
+    c: 0, exp: "A correlação entre a saliência dos temas na mídia e a importância que o público atribui a eles é a base empírica do agendamento." },
+  { q: "'A imprensa destaca o aspecto econômico de um tema e deixa o social em segundo plano.' Isso descreve:",
+    ops: ["Enquadramento: o destaque a certos aspectos orienta como pensar o tema.", "Espelho: o reflexo exato do fato.", "Gatekeeper: um editor que rejeita matérias.", "Instrumentalismo, necessariamente."],
+    c: 0, exp: "Agendar é dizer sobre o que pensar; enquadrar é sugerir como pensar. Não é preciso provar interesse de dono para falar em enquadramento." }
+);
+OBJETIVAS.definidores.push(
+  { q: "Por que, para Hall, as fontes institucionais costumam ser definidoras primárias?",
+    ops: ["Pelo poder, pela credibilidade e porque a redação precisa de fonte rápida e oficial.", "Porque sempre mentem.", "Porque são mais simpáticas.", "Porque pagam o jornal."],
+    c: 0, exp: "A fonte oficial fala primeiro, com autoridade, e as demais vozes passam a reagir à definição que ela deu." },
+  { q: "Na espiral do silêncio, quem tende a se calar?",
+    ops: ["Quem percebe que sua opinião é minoria.", "Quem tem mais informação.", "Quem trabalha na mídia.", "Quem concorda com a maioria."],
+    c: 0, exp: "O medo do isolamento leva as pessoas a se calar quando percebem que estão em minoria, e isso reforça a impressão de que a opinião dominante é unânime." }
+);
+OBJETIVAS.culturalista.push(
+  { q: "Para a abordagem culturalista, a notícia é principalmente:",
+    ops: ["Uma narrativa que usa mapas de significado compartilhados entre jornalistas e público.", "Um espelho da realidade.", "Um instrumento do dono.", "Um produto do relógio da redação."],
+    c: 0, exp: "A notícia conta uma história reconhecível: enredos, heróis e vilões, mitos. Por isso funciona." },
+  { q: "Bird e Dardenne propõem ver a notícia como:",
+    ops: ["Uma forma de contar histórias (storytelling), com enredos e mitos que o público já conhece.", "Um relatório técnico.", "Uma lista de fatos sem enredo.", "Um anúncio disfarçado."],
+    c: 0, exp: "Ao olhar para o enredo (superação, redenção, queda), a abordagem culturalista explica por que certas histórias se repetem." }
+);
+OBJETIVAS.instrumentalista.push(
+  { q: "Qual item NÃO faz parte dos cinco filtros de Herman e Chomsky?",
+    ops: ["O prazo de fechamento da edição.", "A propriedade do veículo.", "A publicidade.", "As fontes oficiais."],
+    c: 0, exp: "O prazo de fechamento é da rotina de produção (Newsmaking). Os cinco filtros são propriedade, publicidade, fontes oficiais, flak e ideologia dominante." },
+  { q: "Uma análise instrumentalista só é sólida quando:",
+    ops: ["Mostra o interesse, onde ele aparece no texto e compara com casos semelhantes.", "Afirma que o jornal 'tem viés' e para por aí.", "Presume má-fé de qualquer repórter.", "Dispensa evidência."],
+    c: 0, exp: "Sem identificar dono, interesse e marca no texto, é suspeita, não análise. A comparação com casos parecidos é o que dá solidez." }
+);
+
+/* ---------- Dissertativas: Espelho (mais 4) ---------- */
+DISSERTATIVAS.espelho.push(
+  { q: "Um jornal publica, na capa, a inauguração de uma praça, com foto grande. Na página 7, em oito linhas, publica uma enchente que atingiu um bairro de periferia na véspera. Tudo é verdadeiro. O editor diz: 'nós só mostramos o que aconteceu'. Avalie pelo Espelho e por duas teorias rivais, sem supor má-fé.",
+    g: ["Define o Espelho e reconhece o que ele acerta (os fatos publicados são verdadeiros).", "Mostra o que o Espelho não explica: a hierarquia (capa x página 7).", "Usa uma rival com evidência (Newsmaking: hora do fechamento, equipe mínima, rede de captação; ou Gatekeeper: critérios de seleção).", "Explica por que não é preciso supor má-fé (processo, não vontade).", "Conclui qual teoria explica melhor e por quê."] },
+  { q: "Dois jornais publicam a mesma pesquisa de aprovação de um serviço municipal. Um titula 'Aprovação sobe', o outro 'Aprovação continua abaixo de metade'. Ambos estão exatos. Por que isso é um problema para o Espelho, e que critério o leitor deve usar para comparar os dois?",
+    g: ["Define o Espelho (canal transparente).", "Mostra que dois títulos exatos e diferentes são impossíveis de explicar sem escolha.", "Nomeia a escolha (enquadramento, seleção, hierarquia).", "Propõe um critério de comparação (ler os dados originais, ver o que cada título destaca e omite).", "Dá um exemplo fora da política."] },
+  { q: "'A melhor notícia é aquela sem opinião.' Discuta a frase separando o ideal de precisão da tese do reflexo.",
+    g: ["Distingue o ideal profissional (checar, separar fato e opinião) da tese teórica (a notícia reflete a realidade).", "Reconhece o que o ideal produz de bom (verificação, correção).", "Mostra por que a tese falha (seleção, hierarquia, palavras).", "Dá um exemplo concreto.", "Evita supor má-fé do jornalista."] },
+  { q: "Faça a defesa do Espelho, como num Tribunal: o que o jornalismo perderia se abandonasse por completo a objetividade? Depois mostre onde a defesa se rompe.",
+    g: ["Apresenta a defesa mais forte (confiança, verificação, limite à propaganda).", "Separa a objetividade como método da objetividade como espelho.", "Mostra onde a defesa se rompe (hierarquia, seleção, palavras) com um caso.", "Usa pelo menos uma teoria rival com evidência.", "Conclui com uma posição clara."] }
+);
+
+/* ---------- Dissertativas: outras teorias (mais 1 cada) ---------- */
+DISSERTATIVAS.gatekeeper.push(
+  { q: "Um editor recebe vinte pautas e escolhe duas. Explique pelo Gatekeeper e por uma teoria rival que corrige o foco no indivíduo. Use um exemplo fora da política.",
+    g: ["Define Gatekeeper (seleção, critérios em boa parte pessoais) e cita valores-notícia.", "Escolhe uma rival (Organizacional ou Newsmaking) e mostra o que ela acrescenta.", "Usa um exemplo concreto.", "Diz qual explica melhor o caso e por quê."] }
+);
+DISSERTATIVAS.organizacional.push(
+  { q: "Um repórter novo passa a evitar certos temas sem que ninguém tenha mandado. Explique pela teoria organizacional e por uma rival, e diga o que cada uma exige como evidência.",
+    g: ["Explica a socialização (observação, sanções, desejo de pertencer).", "Escolhe uma rival (Gatekeeper ou Instrumentalista) e a compara.", "Aponta a evidência que cada teoria exigiria.", "Conclui com posição."] }
+);
+DISSERTATIVAS.newsmaking.push(
+  { q: "Três sites publicam, quase ao mesmo tempo, matérias idênticas a partir de um mesmo comunicado. Explique pelo Newsmaking e pelo Espelho, e diga o que o Espelho não consegue explicar.",
+    g: ["Aplica fonte regular, prazo e economia de apuração.", "Mostra que o Espelho explica a semelhança (o fato é o mesmo), mas não a escolha do fato nem a ausência de outras vozes.", "Dá um exemplo concreto.", "Conclui sem supor má-fé."] }
+);
+DISSERTATIVAS.agenda.push(
+  { q: "Uma série de reportagens sobre calçadas quebradas é seguida de maior preocupação do público com acessibilidade. Explique pelo agendamento e diga que evidência seria necessária para sustentar a relação, e qual explicação alternativa existe.",
+    g: ["Explica agendamento (sobre o que pensar) e, se couber, enquadramento.", "Aponta evidência (dados de opinião antes e depois, ordem temporal).", "Reconhece explicações alternativas (um acidente, uma lei, um caso de repercussão).", "Evita afirmar causalidade sem prova."] }
+);
+DISSERTATIVAS.definidores.push(
+  { q: "Em todas as matérias sobre uma fila de cirurgias, a explicação é 'alta demanda sazonal', dada pelo hospital. Explique pelos definidores primários e proponha como seria uma cobertura que dividisse a definição.",
+    g: ["Aplica a ideia de definidor primário (fonte institucional, acesso, credibilidade).", "Mostra o efeito: as demais vozes reagem à definição inicial.", "Propõe vozes alternativas (sindicato, pacientes, dados).", "Evita acusar má-fé."] }
+);
+DISSERTATIVAS.culturalista.push(
+  { q: "Na cobertura de um campeonato feminino, aparecem 'superação' e 'luta por espaço' mais do que tática. Explique pela abordagem culturalista e por uma teoria rival, e diga o que cada uma deixa de explicar.",
+    g: ["Aplica o enredo e os valores compartilhados (mapas de significado).", "Compara com uma rival (Gatekeeper ou Newsmaking).", "Aponta o limite de cada uma.", "Dá evidência do texto."] }
+);
+DISSERTATIVAS.instrumentalista.push(
+  { q: "Um portal tira do ar em uma hora uma matéria sobre uma rede de farmácias, que é sua maior anunciante. Explique pela teoria instrumentalista, diga que prova ainda faltaria, e compare com uma teoria rival.",
+    g: ["Aplica o filtro da publicidade com marca no texto e na hierarquia.", "Aponta a evidência que falta (comparar com casos semelhantes, outros anunciantes).", "Compara com uma rival (Organizacional ou Newsmaking).", "Evita concluir sem prova."] }
+);
+
+/* ---------- Plantão: casos novos ---------- */
+CASOS.push(
+  /* reais */
+  { t: "definidores", alt: "espelho", fonte: "Correio da Manhã (Campinas), 09/11/2026, site", txt: "'Valinhos suspende o atendimento presencial do Bolsa Família.' A matéria não cita nenhuma pessoa. Atribui a pausa, até 10 de novembro, à indisponibilidade do sistema de benefícios usado pela Prefeitura e à geração da folha com os novos valores. A foto é de divulgação da Prefeitura.", pergunta: "Toda a explicação vem de um só lado, sem uma única fala. Que teoria pergunta quem definiu o problema primeiro?", exp: "A causa e a duração da pausa vêm da instituição, por texto e foto de divulgação: definidores primários. O Espelho aprovaria a matéria, que é exata, mas não pergunta quem teve voz. Ouvir beneficiários ou outra fonte abriria outra definição." },
+  { t: "newsmaking", alt: "definidores", fonte: "Correio da Manhã (Campinas), 17/11/2026, site", txt: "'Notificações de violência contra mulher adulta aumentam 11,1%', com a linha fina 'Boletim do Sisnov aponta 1.975 registros em 2025, o maior número desde 2019'. A matéria nasce do boletim nº 19, divulgado na véspera, traz duas falas, do secretário de Saúde e da secretária das Mulheres, e não diz se a alta é de casos, de denúncias ou de melhor registro.", pergunta: "Por que a matéria nasce de um boletim periódico de órgão público, com falas institucionais, e não de uma apuração própria?", exp: "Fonte regular, divulgação por rotina e economia de apuração: Newsmaking. O título é preciso (fala em notificações, não em violência), o que o Espelho valoriza, mas a pergunta sobre o que a alta significa fica sem resposta. A Definidores também ajudaria, mas a pergunta é sobre a rotina que produz a matéria." },
+  { t: "newsmaking", alt: "espelho", fonte: "Correio da Manhã (Campinas), 17/11/2026, site", txt: "'Campinas planta 1.028 mudas em escolas municipais.' A matéria, sem assinatura, traz a secretária de Educação em paráfrase, números (37 unidades, meta de mil mudas atingida antes do prazo) e foto creditada à Prefeitura. Não há contraponto, custo nem escolas fora do projeto.", pergunta: "Todos os números batem com a fonte. Que teoria explica por que essa matéria existe, do jeito que existe?", exp: "Comunicado pronto, fonte oficial regular e economia de apuração: Newsmaking. O Espelho aprovaria a exatidão, mas não pergunta por que esse fato virou matéria e outros, como custos ou escolas sem projeto, não." },
+  { t: "gatekeeper", alt: "culturalista", fonte: "Correio da Manhã (Campinas), 17/11/2026, site", txt: "'Ponte fecha a Série B com a pior campanha da história', com a linha fina 'Macaca somou 15 pontos e bateu recordes negativos no campeonato'. O texto lista recordes (menos pontos, mais derrotas, mais jogos sem vitória) e não cita nenhuma fonte.", pergunta: "Os números são exatos. Que teoria, com seus valores-notícia, explica por que um 'recorde negativo' vira título?", exp: "Superlativo, negatividade e magnitude são valores-notícia (Galtung e Ruge) que ajudam o fato a passar pelo portão: Gatekeeper. A Culturalista explicaria o enredo da queda, que é outra pergunta." },
+  { t: "agenda", alt: "espelho", fonte: "Correio da Manhã (Campinas), 17/11/2026, site", txt: "'Monte Mor se destaca no ranking estadual de geração de empregos.' A matéria usa dados do Caged (janeiro a setembro de 2026) e destaca três atividades em que o município lidera no estado, com saldos de 163, 47 e 21 vagas. Ninguém é ouvido.", pergunta: "Os números do Caged estão certos. Que teoria trata de como o destaque a certos aspectos orienta como pensar o tema?", exp: "O título generaliza a partir de três atividades escolhidas. Esse destaque a aspectos favoráveis é enquadramento. O Espelho confirmaria que os números estão certos, sem ver a escolha do recorte." },
+  { t: "culturalista", alt: "espelho", fonte: "Meia Hora, 15/11/2026, capa", txt: "A manchete da capa do jornal popular diz que o Vasco 'se liberta e sonha com a Liberta'. A linguagem é de fábula: libertação e sonho.", pergunta: "A linguagem de enredo e emoção, que o torcedor reconhece de imediato, é explicada por qual teoria?", exp: "Narrativa compartilhada, com enredo de libertação e sonho: Culturalista. O Espelho descreveria o resultado do jogo, mas não explicaria por que o título conta o jogo como fábula." },
+
+  /* hipotéticos, com o Espelho como armadilha */
+  { t: "newsmaking", alt: "espelho", txt: "Num domingo, com três repórteres em vez de dez, um portal publica só duas matérias de cidade, ambas tiradas de comunicados. Na segunda, o mesmo portal publica doze. Nenhuma das doze trata de fatos mais importantes do que os de domingo.", exp: "O volume varia com a equipe e o fechamento: rotina de produção. O Espelho diria que a quantidade segue os fatos, mas os fatos do domingo existiram." },
+  { t: "gatekeeper", alt: "espelho", txt: "Uma chefe de reportagem recebe dez pautas e aprova duas. Quando perguntam o motivo, responde: 'foram as que eu achei mais relevantes para quem lê o jornal'.", exp: "Seleção individual, com critérios declarados: Gatekeeper. O Espelho não explica por que oito pautas ficaram de fora." },
+  { t: "instrumentalista", alt: "espelho", txt: "Uma universidade particular é a maior anunciante de um jornal. Quando uma denúncia contra a instituição aparece, o jornal publica só a nota oficial, no rodapé da página 12, e não ouve os alunos. Outros veículos ouviram.", exp: "Anunciante identificado, interesse concreto e omissão comparável: Instrumentalista. O Espelho aprovaria a exatidão da nota, mas não a hierarquia nem a ausência de vozes." },
+  { t: "organizacional", alt: "espelho", txt: "Numa redação, nenhum chefe proíbe nada, mas os repórteres sabem que matérias sobre a empresa dona do jornal 'passam por conversa'. Quem tocou no assunto sem aviso foi chamado à sala e, depois, ninguém mais tocou.", exp: "Regra aprendida por observação e sanção: socialização organizacional. Não há reflexo do fato: há uma regra da casa." },
+  { t: "culturalista", alt: "espelho", txt: "Todo fim de ano, os jornais da cidade trazem matérias sobre 'espírito natalino': solidariedade, mesa farta, reencontros. O formato quase não muda de ano para ano, e o público espera por ele.", exp: "Enredo e valores compartilhados, reconhecíveis: Culturalista. O Espelho explicaria cada fato, mas não por que a mesma história volta todo ano." },
+  { t: "definidores", alt: "espelho", txt: "Depois de um apagão de energia, as primeiras matérias citam só a nota da concessionária, que fala em 'fenômeno atmosférico'. Dois dias depois, moradores e um engenheiro apresentam outra causa, mas a primeira definição já tinha dominado a cobertura.", exp: "A fonte institucional definiu primeiro, e as demais vozes reagiram à definição: definidores primários. O Espelho aceitaria a primeira versão como 'o que aconteceu'." },
+  { t: "agenda", alt: "espelho", txt: "Durante um mês, os jornais de uma cidade falam todos os dias de assaltos a ônibus. Uma pesquisa mostra que moradores que quase nunca pegam ônibus passaram a listar 'segurança no transporte' entre os três maiores problemas.", exp: "A saliência na mídia passa para a agenda do público: agendamento. Como os moradores não viveram os fatos, o Espelho (reflexo do que acontece) explica pouco." },
+  { t: "espelho", alt: "newsmaking", txt: "Antes de publicar, um repórter confere o número de internações em três bases oficiais. A primeira fonte diz 140, as outras duas dizem 104. Ele descarta o 140, liga para o órgão e publica 104, com a fonte indicada.", exp: "É o que o Espelho acerta: verificação, precisão e atribuição. O Newsmaking descreveria o ritual, mas aqui o valor em jogo é a exatidão." },
+  { t: "espelho", alt: "organizacional", txt: "Um editor corta de uma notícia a frase 'o prefeito foi infeliz ao dizer isso'. Explica: 'isso é opinião; aqui só entra o que ele disse'.", exp: "Separar fato e opinião é o princípio-base do Espelho. A crítica pergunta se a separação é perfeita, mas o princípio é esse." },
+  { t: "espelho", alt: "gatekeeper", txt: "Num manual de redação lê-se: 'cite sempre a fonte, confira cada número e não use adjetivos'. O texto diz que o objetivo é 'o leitor ver o fato como ele foi'.", exp: "Observador neutro e fato separado da opinião: o ideal profissional que a Teoria do Espelho descreve. Como regra de método é útil; como teoria, é insuficiente." }
+);
+
+/* ---------- Pergunta de entrada ----------
+   Sorteada quando o aluno entra no jogo. Cada item tem versões
+   diferentes (v), e o jogo escolhe uma delas ao acaso. As alternativas
+   são embaralhadas. Os itens já vistos não voltam até que todos tenham
+   aparecido. c = índice da alternativa certa (antes do embaralhamento). */
+var ENTRADA = [
+  { id: "foto-angulo", tema: "espelho", v: [
+    { q: "Uma foto de um ato, tirada de um ângulo, mostra a rua cheia. De outro ângulo, no mesmo minuto, a rua parece vazia. As duas são verdadeiras. O que isso ensina sobre a Teoria do Espelho?",
+      ops: ["Enquadrar já é escolher: foto verdadeira não é o único reflexo possível.", "Uma das fotos é falsa.", "Foto não é notícia.", "O fotógrafo errou a legenda."], c: 0,
+      exp: "O Espelho supõe um só reflexo possível do fato. Dois reflexos verdadeiros e diferentes mostram que houve escolha." },
+    { q: "Duas manchetes sobre o mesmo jogo: 'Time vence nos últimos minutos' e 'Time desperdiça vantagem de vinte pontos'. Ambas exatas. Qual é a lição para o Espelho?",
+      ops: ["Que o relato escolhe o que destacar, e destaque diferente não é, por si só, erro.", "Que uma manchete mente.", "Que esporte não segue regras jornalísticas.", "Que o jogo teve duas partidas."], c: 0,
+      exp: "Duas manchetes exatas e diferentes mostram que a notícia é uma escolha sobre o fato, e não o fato refletido." } ] },
+  { id: "honestidade", tema: "espelho", v: [
+    { q: "Um aluno escreve: 'se o jornalista é honesto, a notícia é um espelho'. Onde está a falha?",
+      ops: ["Honestidade evita a mentira, mas não evita a seleção e a hierarquia.", "Jornalista honesto não existe.", "Espelho só vale para impresso.", "A honestidade é irrelevante."], c: 0,
+      exp: "A crítica ao Espelho não acusa ninguém de mentir: mostra que, mesmo com todos os fatos verdadeiros, alguém escolhe o que entra e em que ordem." },
+    { q: "Um colega diz: 'se o repórter não tem posição política, o texto é neutro como um espelho'. O que falta nessa frase?",
+      ops: ["A seleção, a hierarquia e as palavras também constroem o relato, mesmo sem posição declarada.", "Repórter sempre tem posição.", "Neutralidade é proibida.", "Texto sem posição não é notícia."], c: 0,
+      exp: "Neutralidade pessoal não elimina escolhas de pauta, de ordem e de palavra: elas são parte do ofício." } ] },
+  { id: "so-erro", tema: "espelho", v: [
+    { q: "Dois repórteres cobrem a mesma coletiva e escrevem leads diferentes, ambos exatos. Para o Espelho, a única explicação seria:",
+      ops: ["Que um dos dois errou.", "Que cada um escolheu o que destacar.", "Que a coletiva teve duas verdades.", "Que os leitores são diferentes."], c: 0,
+      exp: "Se a notícia reflete o fato, diferença só se explica por erro. Como leads exatos e diferentes são normais, a tese do reflexo falha." },
+    { q: "Dois sites publicam a mesma pesquisa com títulos diferentes, e os dois conferem com os dados. Para o Espelho, o que teria de ter acontecido?",
+      ops: ["Algum dos dois deixou de refletir o dado.", "Cada um escolheu um aspecto, e isso é normal.", "A pesquisa tinha dois resultados.", "Nada: o Espelho prevê títulos diferentes."], c: 0,
+      exp: "O Espelho só conhece o erro como causa da diferença. A pesquisa mostra que escolher é parte do trabalho, não desvio." } ] },
+  { id: "acerta", tema: "espelho", v: [
+    { q: "Um jornal publica: 'Corrigimos: o prédio tinha 12 andares, e não 14'. O que isso mostra sobre o Espelho?",
+      ops: ["Que checar e corrigir continua sendo valor legítimo, mesmo com a tese do reflexo criticada.", "Que o Espelho está provado.", "Que só impresso corrige.", "Que correção é inútil."], c: 0,
+      exp: "É o que o Espelho acerta: precisão, verificação, correção. A crítica não pede que se abandone a exatidão." },
+    { q: "Um repórter confere um número de internações em três bases e descarta o que não bate. Que valor da Teoria do Espelho isso preserva?",
+      ops: ["A precisão e a verificação, que seguem valendo.", "A tese de que a notícia é um reflexo perfeito.", "A ideia de que o jornal serve ao dono.", "A neutralidade absoluta."], c: 0,
+      exp: "Verificar é bom jornalismo. O que a crítica rejeita é a ideia de que verificar basta para tornar a notícia um reflexo." } ] },
+  { id: "verbo", tema: "espelho", v: [
+    { q: "Ao citar um secretário, o repórter troca 'disse' por 'admitiu'. Por que isso incomoda o Espelho?",
+      ops: ["O verbo já traz uma avaliação do fato: não existe palavra sem efeito.", "É erro de português.", "O secretário não pode ser citado.", "Verbo não importa."], c: 0,
+      exp: "Até o verbo de citação interpreta. Um relato 'sem interpretação' não existe." },
+    { q: "Um texto diz que um jogador 'foi flagrado' saindo do hotel; outro, que ele 'foi visto'. Qual é a lição?",
+      ops: ["A escolha da palavra já orienta a leitura.", "Os dois textos estão errados.", "Só um é jornalismo.", "Palavras não importam em notícia."], c: 0,
+      exp: "A palavra escolhida orienta o leitor. O Espelho não tem como explicar essa diferença sem supor erro." } ] },
+  { id: "manchete-fato", tema: "espelho", v: [
+    { q: "Um veterano diz: 'se o leitor discorda da manchete, discorda do fato, porque a manchete é o fato'. Que teoria ele expressa?",
+      ops: ["Espelho", "Agendamento", "Newsmaking", "Instrumentalista"], c: 0,
+      exp: "A identidade entre manchete e fato é a tese do Espelho. As teorias construcionistas lembram que a manchete é uma escolha sobre o fato." },
+    { q: "Um colunista escreve: 'a imagem fala por si'. Que ideia o Espelho tem por trás dessa frase, e onde ela falha?",
+      ops: ["A de que o fato se mostra sozinho; falha porque o enquadramento e a legenda orientam a leitura.", "A de que a imagem mente; falha porque imagem é verdade.", "A de que a imagem é do dono; falha porque o dono não vê.", "Nenhuma; a frase é neutra."], c: 0,
+      exp: "A imagem sempre vem com recorte e legenda: ninguém a vê 'sozinha'." } ] },
+  { id: "capa-x-p7", tema: "espelho", v: [
+    { q: "A capa traz a inauguração de uma praça, com foto grande. Uma enchente na periferia, na véspera, ganha oito linhas na página 7. Tudo é verdadeiro. O que o Espelho não explica?",
+      ops: ["A hierarquia: por que um fato foi para a capa e outro para a página 7.", "Se os fatos são verdadeiros.", "Se há erro de digitação.", "Se a foto é nítida."], c: 0,
+      exp: "O Espelho avalia se o que foi publicado confere com o fato. Não pergunta por que um fato ganhou capa e outro, nota." },
+    { q: "Um jornal dá a abertura ao lançamento de um produto e deixa, em nota de rodapé, a morte de um idoso numa fila de atendimento. Todos os fatos estão corretos. O que fica sem explicação pelo Espelho?",
+      ops: ["Por que um fato verdadeiro foi tratado como principal e o outro como secundário.", "Se o idoso existiu.", "Se o produto existe.", "Se o jornal é impresso."], c: 0,
+      exp: "A hierarquia não é um fato: é uma decisão. Para explicá-la são necessárias rotinas, seleção ou interesses." } ] },
+  { id: "frase-repórter", tema: "espelho", v: [
+    { q: "Um repórter diz: 'nós só mostramos o que aconteceu'. A melhor avaliação é:",
+      ops: ["Descreve o ideal profissional, mas omite que seleção, hierarquia e palavras também constroem o relato.", "É uma teoria comprovada.", "É falsa porque o repórter mente.", "É irrelevante."], c: 0,
+      exp: "A frase expressa a ideologia da profissão. Não funciona como teoria da notícia." },
+    { q: "Um editor afirma: 'eu não interpreto, eu relato'. Em termos de teoria, ele está:",
+      ops: ["Defendendo o Espelho, que como teoria é insuficiente porque omite a escolha.", "Defendendo o Instrumentalismo.", "Aplicando a espiral do silêncio.", "Fazendo agendamento."], c: 0,
+      exp: "A frase é a bandeira do Espelho. A pesquisa mostra que relatar já é interpretar, pela seleção e pelas palavras." } ] },
+  { id: "plantao-release", tema: "newsmaking", v: [
+    { q: "Três sites publicam, quase juntos, matérias quase idênticas tiradas do mesmo comunicado. O Espelho diria que são iguais porque o fato é um só. Qual teoria explica melhor a semelhança?",
+      ops: ["Newsmaking: fonte regular, prazo e economia de apuração.", "Espelho", "Instrumentalista", "Culturalista"], c: 0,
+      exp: "O Espelho não explica por que o mesmo fato virou matéria nos três sites e por que nenhum ouviu outras vozes. Rotina e fonte regular explicam." },
+    { q: "Dois jornais publicam texto quase idêntico, tirado do mesmo despacho de agência, às 17h, uma hora antes do fechamento. Qual teoria explica melhor?",
+      ops: ["Newsmaking: o prazo e a fonte regular produzem textos iguais.", "Espelho: o fato é um só.", "Instrumentalista: o dono manda.", "Agendamento: o público pediu."], c: 0,
+      exp: "A semelhança vem do despacho e do relógio, não de ordem de ninguém nem de o fato ser único." } ] },
+  { id: "plantao-gate", tema: "gatekeeper", v: [
+    { q: "Um editor recebe vinte resultados de futebol amador e publica três, de times do bairro onde cresceu. 'São os que eu acho que interessam.' Qual teoria explica melhor?",
+      ops: ["Gatekeeper: seleção individual com critério pessoal.", "Espelho", "Instrumentalista", "Definidores primários"], c: 0,
+      exp: "O Espelho não explica por que dezessete resultados ficaram de fora. A seleção individual e declarada é o Gatekeeper." },
+    { q: "Uma chefe de reportagem aprova duas de dez pautas, 'as que achei mais relevantes'. Qual teoria explica melhor a escolha?",
+      ops: ["Gatekeeper", "Espelho", "Culturalista", "Instrumentalista"], c: 0,
+      exp: "Seleção feita por uma pessoa, com critério declarado: Gatekeeper. O Espelho não diz nada sobre as oito pautas descartadas." } ] },
+  { id: "plantao-instr", tema: "instrumentalista", v: [
+    { q: "A maior anunciante de um portal é uma rede de farmácias. Quando duas lojas da rede são interditadas, o portal publica só a nota da empresa e tira a matéria da capa em uma hora. Qual teoria explica melhor?",
+      ops: ["Instrumentalista: o filtro da publicidade com marca no texto.", "Espelho", "Gatekeeper", "Culturalista"], c: 0,
+      exp: "Há interesse identificável, marca no texto e na hierarquia. O Espelho aprovaria a exatidão da nota, mas não a omissão." },
+    { q: "Um jornal tem um banco como maior patrocinador. Numa semana de reclamações contra o banco, só publica a nota oficial, no rodapé. Qual teoria explica melhor?",
+      ops: ["Instrumentalista: patrocínio e omissão comparável com outros veículos.", "Espelho", "Newsmaking", "Agendamento"], c: 0,
+      exp: "Patrocinador identificado, interesse concreto e omissão que os concorrentes não cometeram. Falta comparar para provar, mas é o terreno da análise instrumentalista." } ] },
+  { id: "plantao-cultura", tema: "culturalista", v: [
+    { q: "Todo fim de ano, os jornais trazem matérias sobre 'espírito natalino', num formato que quase não muda. Qual teoria explica melhor a repetição do enredo?",
+      ops: ["Culturalista: enredo e valores compartilhados.", "Espelho", "Instrumentalista", "Definidores primários"], c: 0,
+      exp: "O Espelho explicaria cada fato, não a volta da mesma história. A repetição vem do enredo reconhecível." },
+    { q: "Na morte de um músico popular, todos os veículos usam o mesmo roteiro: origem humilde, talento, sucesso, 'deixa um legado'. Qual teoria explica melhor?",
+      ops: ["Culturalista: narrativa conhecida e compartilhada com o público.", "Espelho", "Gatekeeper", "Instrumentalista"], c: 0,
+      exp: "O enredo é repetido porque o público o reconhece. Não há indício de interesse de dono." } ] }
+];

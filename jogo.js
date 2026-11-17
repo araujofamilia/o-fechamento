@@ -2,11 +2,12 @@
 (function () {
   "use strict";
 
-  var VERSAO = "2026-11-14c";
+  var VERSAO = "2026-11-17a";
   var PREF = "fechamento-teorias:v1:";
   var ULTIMO = "fechamento-teorias:ultimo";
   var MIN_DISS = 40, MIN_PARECER = 120;
   var N_OBJ = 4, N_CASO = 2, N_PLANTAO = 8;
+  var FIM_JOGO = "2026-12-02T23:59:59-03:00"; /* o jogo fecha em 2 de dezembro */
 
   var app = document.getElementById("app");
   var barra = document.getElementById("barra");
@@ -55,6 +56,17 @@
   function nivel() { var n = NIVEIS[0], prox = null; for (var i = 0; i < NIVEIS.length; i++) { if (S.xp >= NIVEIS[i].xp) { n = NIVEIS[i]; prox = NIVEIS[i + 1] || null; } } return { n: n, prox: prox }; }
   function ganha(x, el) { S.xp += x; if (x > 0) flutua("+" + x, el); }
 
+
+  /* ---------------- aviso: o jogo fecha em 2 de dezembro ---------------- */
+  function avisoFim() {
+    var dias = Math.ceil((new Date(FIM_JOGO).getTime() - Date.now()) / 86400000);
+    var quando = dias > 1 ? "Faltam " + dias + " dias." : (dias === 1 ? "É amanhã." : (dias === 0 ? "É hoje." : ""));
+    var txt = dias < 0
+      ? "O jogo fechou em 2 de dezembro."
+      : "O jogo fecha em 2 de dezembro, dois dias antes da prova de " + esc(CONFIG.dataProva) + ". " + quando + " Termine as mesas e envie suas respostas antes dessa data.";
+    return '<div class="aviso" style="border-color:var(--verm,#b3261e);background:#fff3f1;margin:14px 0;font-size:17px"><b style="color:var(--verm,#b3261e)">Atenção:</b> ' + txt + '</div>';
+  }
+
   /* ---------------- barra ---------------- */
   function desenhaBarra() {
     if (!S) { barra.hidden = true; return; }
@@ -82,7 +94,7 @@
     app.innerHTML =
       '<header class="masthead"><div class="kicker">Teoria do Jornalismo · PUC-Campinas · Turma 0101</div>' +
       '<h1>O Fechamento</h1><div class="sub">o jogo das oito teorias do jornalismo</div></header>' +
-      '<div class="dateline"><span>Edição de revisão · 2026/2</span><span>Prova individual em ' + esc(CONFIG.dataProva) + '</span><span>8 mesas · plantão · fechamento</span></div>' +
+      '<div class="dateline"><span>Edição de revisão · 2026/2</span><span>Prova individual em ' + esc(CONFIG.dataProva) + '</span><span>Jogo fecha em 2 de dezembro</span></div>' + avisoFim() +
       '<div class="cols"><div class="c-intro">' +
       '<div class="selo">Edição extra</div>' +
       '<div class="manchete">Oito teorias, uma redação: você fecha a edição?</div>' +
@@ -111,10 +123,43 @@
     function entrar() {
       var e = inp.value.trim().toLowerCase();
       if (!emailValido(e)) { document.getElementById("erro").textContent = "Digite um e-mail válido para entrar."; inp.focus(); return; }
-      S = carregar(e) || novo(e); salvar(); telaRedacao();
+      S = carregar(e) || novo(e); salvar(); telaEntrada();
     }
     document.getElementById("entrar").onclick = entrar;
     inp.addEventListener("keydown", function (ev) { if (ev.key === "Enter") entrar(); });
+  }
+
+
+  /* ---------------- pergunta de entrada (sorteada no login) ---------------- */
+  function telaEntrada() {
+    if (typeof ENTRADA === "undefined" || !ENTRADA.length) { telaRedacao(); return; }
+    S.entrada = S.entrada || { vistas: [], total: 0 };
+    var pool = ENTRADA.filter(function (e) { return S.entrada.vistas.indexOf(e.id) < 0; });
+    if (!pool.length) { S.entrada.vistas = []; pool = ENTRADA.slice(); }
+    var item = sorteia(pool, 1)[0];
+    var q = sorteia(item.v, 1)[0];
+    S.entrada.vistas.push(item.id); salvar();
+    var ordem = embaralha(idx(q.ops.length));
+    desenhaBarra(); topo();
+    app.innerHTML = '<div class="dateline" style="margin-top:18px"><span>' + esc(S.email) + '</span><span>Pergunta de entrada</span><span>Sorteada a cada login</span></div>' + avisoFim() +
+      '<div class="cartao" style="--c:var(--ouro)"><div class="tipo">Pergunta de entrada · vale 10 XP</div><div class="enun">' + esc(q.q) + '</div><div class="ops">' +
+      ordem.map(function (o, i) { return '<button class="op" data-o="' + o + '"><span class="letra">' + "ABCD"[i] + '</span><span>' + esc(q.ops[o]) + '</span></button>'; }).join("") +
+      '</div><div id="fb"></div></div><div class="acoes"><button class="btn sec" id="pular">Ir direto para a redação</button></div>';
+    document.getElementById("pular").onclick = telaRedacao;
+    var bts = app.querySelectorAll(".op");
+    bts.forEach(function (b) {
+      b.onclick = function () {
+        var certo = b.dataset.o === String(q.c);
+        bts.forEach(function (x) { x.disabled = true; if (x.dataset.o === String(q.c)) x.classList.add("certa"); });
+        if (!certo) b.classList.add("errada");
+        if (certo) { S.acertos++; ganha(10, b); } else { S.erros++; }
+        S.entrada.total++; salvar(); desenhaBarra();
+        document.getElementById("fb").innerHTML = '<div class="feedback ' + (certo ? 'ok' : 'no') + '"><b class="v">' + (certo ? 'Certo!' : 'Não foi dessa vez.') + '</b>' + esc(q.exp) + '</div>' +
+          '<div class="acoes"><button class="btn" id="seguir">Entrar na redação</button></div>';
+        document.getElementById("pular").style.display = "none";
+        var sg = document.getElementById("seguir"); sg.focus(); sg.onclick = telaRedacao;
+      };
+    });
   }
 
   /* ---------------- redação ---------------- */
@@ -122,6 +167,7 @@
     desenhaBarra(); topo();
     var c = concluidas();
     var html = '<div class="dateline" style="margin-top:18px"><span>' + esc(S.email) + '</span><span>' + c + ' de 8 mesas fechadas</span><span>' + S.acertos + ' acertos · melhor sequência ' + S.melhorSeq + '</span></div>';
+    html += avisoFim();
     if (S.rodada) {
       var r = S.rodada;
       var nomeR = r.modo === "sala" ? porId[r.sala].nome : (r.modo === "plantao" ? "Plantão" : "Fechamento");
