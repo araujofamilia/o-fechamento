@@ -133,12 +133,13 @@
   /* ---------------- pergunta de entrada (sorteada no login) ---------------- */
   function telaEntrada() {
     if (typeof ENTRADA === "undefined" || !ENTRADA.length) { telaRedacao(); return; }
-    S.entrada = S.entrada || { vistas: [], total: 0 };
-    var pool = ENTRADA.filter(function (e) { return S.entrada.vistas.indexOf(e.id) < 0; });
-    if (!pool.length) { S.entrada.vistas = []; pool = ENTRADA.slice(); }
+    S.entrada = S.entrada || { total: 0 };
+    /* o banco nunca diminui: todo item continua no sorteio a cada login; só não repete o último */
+    var pool = ENTRADA.filter(function (e) { return e.id !== S.entrada.ultima; });
+    if (!pool.length) pool = ENTRADA.slice();
     var item = sorteia(pool, 1)[0];
     var q = sorteia(item.v, 1)[0];
-    S.entrada.vistas.push(item.id); salvar();
+    S.entrada.ultima = item.id; salvar();
     var ordem = embaralha(idx(q.ops.length));
     desenhaBarra(); topo();
     app.innerHTML = '<div class="dateline" style="margin-top:18px"><span>' + esc(S.email) + '</span><span>Pergunta de entrada</span><span>Sorteada a cada login</span></div>' + avisoFim() +
